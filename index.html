@@ -11,8 +11,6 @@
 <style>
   :root {
     --bg: #0a0e14;
-    --bg2: #0f1520;
-    --bg3: #141c2a;
     --card: #111827;
     --border: rgba(0,212,255,0.12);
     --accent: #00d4ff;
@@ -23,14 +21,18 @@
     --mono: 'Space Mono', monospace;
     --sans: 'Syne', sans-serif;
   }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+
   body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--sans);
     line-height: 1.6;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
   }
 
   /* NOISE OVERLAY */
@@ -102,15 +104,16 @@
   .hero-inner {
     max-width: 1100px;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4rem;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
   }
-  .hero-content { max-width: 720px; }
+  .hero-content { flex: 1 1 500px; max-width: 720px; }
   .hero-photo-wrap {
+    flex: 0 0 auto;
     position: relative;
-    flex-shrink: 0;
   }
   .hero-photo {
     width: 220px;
@@ -132,8 +135,12 @@
     transform: translate(6px, 6px);
   }
   @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-photo-wrap { display: none; }
+    .hero-inner { flex-direction: column; align-items: center; text-align: center; }
+    .hero-photo-wrap { order: -1; margin-bottom: 2rem; }
+    .hero-content { flex: 1 1 auto; }
+    .hero-stats { justify-content: center; }
+    .hero-tag { justify-content: center; }
+    .hero-cta { justify-content: center; }
   }
   .hero-tag {
     font-family: var(--mono);
@@ -179,6 +186,7 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-bottom: 2rem;
   }
   .btn-primary {
     padding: 0.75rem 1.75rem;
@@ -216,7 +224,7 @@
   .hero-stats {
     display: flex;
     gap: 3rem;
-    margin-top: 4rem;
+    flex-wrap: wrap;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
   }
@@ -245,6 +253,7 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 3rem;
+    flex-wrap: wrap;
   }
   .section-num {
     font-family: var(--mono);
@@ -261,14 +270,17 @@
     flex: 1;
     height: 1px;
     background: var(--border);
+    min-width: 50px;
   }
 
   /* ABOUT */
   .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 4rem;
-    align-items: start;
+  }
+  .about-text {
+    flex: 1 1 400px;
   }
   .about-text p {
     color: var(--muted);
@@ -278,7 +290,12 @@
     margin-bottom: 1rem;
   }
   .about-text p strong { color: var(--text); }
-  .about-aside { display: flex; flex-direction: column; gap: 1.5rem; }
+  .about-aside {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
   .info-block {
     background: var(--card);
     border: 1px solid var(--border);
@@ -355,11 +372,12 @@
 
   /* PROJECTS */
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
   }
   .proj-card {
+    flex: 1 1 480px;
     background: var(--card);
     border: 1px solid var(--border);
     padding: 2rem;
@@ -424,11 +442,12 @@
 
   /* SKILLS */
   .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.25rem;
   }
   .skill-card {
+    flex: 1 1 240px;
     background: var(--card);
     border: 1px solid var(--border);
     padding: 1.5rem;
@@ -462,6 +481,7 @@
     align-items: center;
     gap: 2rem;
     transition: border-color 0.3s;
+    flex-wrap: wrap;
   }
   .ach-card:hover { border-color: rgba(124,58,237,0.5); }
   .ach-year {
@@ -481,8 +501,10 @@
     background: var(--card);
     border: 1px solid var(--border);
     padding: 1.5rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 0.5rem;
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
   }
@@ -498,10 +520,13 @@
 
   /* CONTACT */
   .contact-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 4rem;
     align-items: center;
+  }
+  .contact-text {
+    flex: 1 1 300px;
   }
   .contact-text h2 {
     font-size: 2.5rem;
@@ -517,7 +542,12 @@
     line-height: 1.9;
     margin-bottom: 2rem;
   }
-  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-links {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
   .contact-link {
     display: flex;
     align-items: center;
@@ -572,12 +602,10 @@
     .nav-links { gap: 1.2rem; }
     #hero { padding: 0 1.5rem; padding-top: 80px; }
     .section-wrap { padding: 4rem 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .hero-stats { gap: 1.5rem; }
     .ach-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     .ach-divider { display: none; }
+    .hero-photo { width: 180px; height: 220px; }
   }
 </style>
 </head>
@@ -632,7 +660,7 @@
       </div>
     </div>
     <div class="hero-photo-wrap">
-      <img src="Passport_size_img.jpeg" alt="Prateek Baraiya" class="hero-photo">
+      <img src="Passport_size_img.jpeg" alt="Prateek Baraiya" class="hero-photo" onerror="this.style.display='none'">
     </div>
   </div>
 </section>
@@ -820,63 +848,37 @@
       <div class="skill-card fade-in">
         <div class="skill-cat">Languages</div>
         <div class="skill-items">
-          <span class="skill-chip">C</span>
-          <span class="skill-chip">C++</span>
-          <span class="skill-chip">Python</span>
-          <span class="skill-chip">Assembly</span>
+          <span class="skill-chip">C</span><span class="skill-chip">C++</span><span class="skill-chip">Python</span><span class="skill-chip">Assembly</span>
         </div>
       </div>
       <div class="skill-card fade-in">
         <div class="skill-cat">Embedded Platforms</div>
         <div class="skill-items">
-          <span class="skill-chip">ESP32</span>
-          <span class="skill-chip">STM32</span>
-          <span class="skill-chip">Arduino</span>
-          <span class="skill-chip">Raspberry Pi</span>
-          <span class="skill-chip">ATmega</span>
-          <span class="skill-chip">8051</span>
-          <span class="skill-chip">Nordic nRF54</span>
-          <span class="skill-chip">DSP TMS320</span>
+          <span class="skill-chip">ESP32</span><span class="skill-chip">STM32</span><span class="skill-chip">Arduino</span><span class="skill-chip">Raspberry Pi</span><span class="skill-chip">ATmega</span><span class="skill-chip">8051</span><span class="skill-chip">Nordic nRF54</span><span class="skill-chip">DSP TMS320</span>
         </div>
       </div>
       <div class="skill-card fade-in">
         <div class="skill-cat">IDEs & Tools</div>
         <div class="skill-items">
-          <span class="skill-chip">STM32CubeIDE</span>
-          <span class="skill-chip">Keil uVision</span>
-          <span class="skill-chip">Arduino IDE</span>
-          <span class="skill-chip">ESP-IDF</span>
-          <span class="skill-chip">Linux</span>
+          <span class="skill-chip">STM32CubeIDE</span><span class="skill-chip">Keil uVision</span><span class="skill-chip">Arduino IDE</span><span class="skill-chip">ESP-IDF</span><span class="skill-chip">Linux</span>
         </div>
       </div>
       <div class="skill-card fade-in">
         <div class="skill-cat">Hardware & EDA</div>
         <div class="skill-items">
-          <span class="skill-chip">KiCad</span>
-          <span class="skill-chip">OrCAD</span>
-          <span class="skill-chip">Proteus</span>
-          <span class="skill-chip">Multisim</span>
-          <span class="skill-chip">LTspice</span>
-          <span class="skill-chip">Scilab</span>
+          <span class="skill-chip">KiCad</span><span class="skill-chip">OrCAD</span><span class="skill-chip">Proteus</span><span class="skill-chip">Multisim</span><span class="skill-chip">LTspice</span><span class="skill-chip">Scilab</span>
         </div>
       </div>
       <div class="skill-card fade-in">
         <div class="skill-cat">ML & Vision</div>
         <div class="skill-items">
-          <span class="skill-chip">OpenCV</span>
-          <span class="skill-chip">PyTorch</span>
-          <span class="skill-chip">Machine Learning</span>
-          <span class="skill-chip">Edge AI</span>
+          <span class="skill-chip">OpenCV</span><span class="skill-chip">PyTorch</span><span class="skill-chip">Machine Learning</span><span class="skill-chip">Edge AI</span>
         </div>
       </div>
       <div class="skill-card fade-in">
         <div class="skill-cat">Protocols</div>
         <div class="skill-items">
-          <span class="skill-chip">RS-485</span>
-          <span class="skill-chip">Modbus-RTU</span>
-          <span class="skill-chip">UART / SPI / I2C</span>
-          <span class="skill-chip">OTA Firmware</span>
-          <span class="skill-chip">RF 433 MHz</span>
+          <span class="skill-chip">RS-485</span><span class="skill-chip">Modbus-RTU</span><span class="skill-chip">UART / SPI / I2C</span><span class="skill-chip">OTA Firmware</span><span class="skill-chip">RF 433 MHz</span>
         </div>
       </div>
     </div>
@@ -1012,14 +1014,6 @@
 </footer>
 
 <script>
-  // Force all sections visible immediately for debugging
-  document.querySelectorAll('.fade-in').forEach(el => {
-    el.classList.add('visible');
-    el.style.opacity = '1';
-    el.style.transform = 'translateY(0)';
-  });
-  
-  // Also keep the original observer as backup
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
@@ -1030,3 +1024,5 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
+</body>
+</html>
