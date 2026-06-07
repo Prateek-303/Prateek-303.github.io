@@ -1012,6 +1012,14 @@
 </footer>
 
 <script>
+  // Force all sections visible immediately for debugging
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.classList.add('visible');
+    el.style.opacity = '1';
+    el.style.transform = 'translateY(0)';
+  });
+  
+  // Also keep the original observer as backup
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
@@ -1022,5 +1030,3 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
-</body>
-</html>
