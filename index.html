@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Prateek Baraiya | Embedded Systems & Robotics</title>
 <meta name="description" content="Portfolio of Prateek Baraiya — Embedded Systems Engineer, Robotics enthusiast, ECE student at DDU Nadiad.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,45 +102,52 @@
     padding-top: 80px;
   }
   .hero-inner {
-    max-width: 1100px;
+    max-width: 1200px;
     width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 3rem;
     flex-wrap: wrap;
   }
   .hero-content { flex: 1 1 500px; max-width: 720px; }
   .hero-photo-wrap {
     flex: 0 0 auto;
     position: relative;
+    margin-left: auto;
   }
   .hero-photo {
-    width: 220px;
-    height: 260px;
+    width: 240px;
+    height: 280px;
     object-fit: cover;
     object-position: top center;
     display: block;
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
     filter: grayscale(20%) contrast(1.05);
     border: 1px solid var(--border);
+    background: #1a2536;
   }
   .hero-photo-wrap::before {
     content: '';
     position: absolute;
     inset: 8px;
-    border: 1px solid rgba(0,212,255,0.25);
+    border: 1px solid rgba(0,212,255,0.3);
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
     z-index: -1;
-    transform: translate(6px, 6px);
+    transform: translate(8px, 8px);
   }
   @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    #hero { padding: 0 1.5rem; padding-top: 80px; }
     .hero-inner { flex-direction: column; align-items: center; text-align: center; }
-    .hero-photo-wrap { order: -1; margin-bottom: 2rem; }
-    .hero-content { flex: 1 1 auto; }
+    .hero-photo-wrap { order: -1; margin-bottom: 2rem; margin-left: 0; }
+    .hero-content { flex: 1 1 auto; text-align: center; }
     .hero-stats { justify-content: center; }
     .hero-tag { justify-content: center; }
     .hero-cta { justify-content: center; }
+    .hero-tag::before { display: none; }
+    .hero-tag::after { display: none; }
   }
   .hero-tag {
     font-family: var(--mono);
@@ -149,16 +156,13 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-  }
-  .hero-tag::before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 1px;
-    background: var(--accent);
+    background: rgba(0,212,255,0.08);
+    padding: 0.3rem 1rem;
+    border-radius: 0px;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
   }
   h1.hero-name {
     font-size: clamp(3rem, 8vw, 6rem);
@@ -168,7 +172,7 @@
     margin-bottom: 1rem;
   }
   .hero-name span {
-    display: block;
+    display: inline-block;
     background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 50%, #10b981 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -179,7 +183,7 @@
     font-size: 1rem;
     color: var(--muted);
     margin-bottom: 2.5rem;
-    max-width: 560px;
+    max-width: 600px;
     line-height: 1.8;
   }
   .hero-cta {
@@ -202,6 +206,7 @@
     cursor: pointer;
     transition: all 0.2s;
     clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    display: inline-block;
   }
   .btn-primary:hover { background: #fff; transform: translateY(-2px); }
   .btn-outline {
@@ -244,7 +249,7 @@
 
   /* SECTION LAYOUT */
   .section-wrap {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 6rem 4rem;
   }
@@ -260,6 +265,9 @@
     font-size: 0.7rem;
     color: var(--accent);
     letter-spacing: 0.15em;
+    background: rgba(0,212,255,0.1);
+    padding: 0.2rem 0.6rem;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
   }
   .section-title {
     font-size: 2rem;
@@ -277,7 +285,7 @@
   .about-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 3rem;
   }
   .about-text {
     flex: 1 1 400px;
@@ -289,7 +297,7 @@
     line-height: 2;
     margin-bottom: 1rem;
   }
-  .about-text p strong { color: var(--text); }
+  .about-text p strong { color: var(--text); font-weight: 600; }
   .about-aside {
     flex: 1 1 280px;
     display: flex;
@@ -301,7 +309,9 @@
     border: 1px solid var(--border);
     padding: 1.25rem 1.5rem;
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+    transition: border 0.2s;
   }
+  .info-block:hover { border-color: rgba(0,212,255,0.4); }
   .info-block-label {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -374,7 +384,7 @@
   .projects-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.8rem;
   }
   .proj-card {
     flex: 1 1 480px;
@@ -387,17 +397,17 @@
     flex-direction: column;
   }
   .proj-card:hover {
-    border-color: rgba(0,212,255,0.5);
+    border-color: rgba(0,212,255,0.6);
     transform: translateY(-4px);
   }
   .proj-num {
     font-family: var(--mono);
     font-size: 0.65rem;
-    color: var(--muted);
+    color: var(--accent3);
     letter-spacing: 0.15em;
     margin-bottom: 0.75rem;
   }
-  .proj-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .proj-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem; }
   .proj-sub {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -428,12 +438,12 @@
     color: var(--accent);
     text-decoration: none;
     letter-spacing: 0.08em;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.4rem;
     transition: gap 0.2s;
   }
-  .proj-link:hover { gap: 0.7rem; }
+  .proj-link:hover { gap: 0.7rem; color: #fff; }
   .proj-year {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -461,15 +471,17 @@
     text-transform: uppercase;
     margin-bottom: 0.75rem;
   }
-  .skill-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .skill-chip {
     font-family: var(--mono);
     font-size: 0.68rem;
-    padding: 0.2rem 0.55rem;
+    padding: 0.25rem 0.65rem;
     background: rgba(16,185,129,0.08);
     border: 1px solid rgba(16,185,129,0.2);
     color: var(--accent3);
+    transition: all 0.2s;
   }
+  .skill-chip:hover { background: rgba(16,185,129,0.2); border-color: var(--accent3); }
 
   /* ACHIEVEMENTS */
   .ach-list { display: flex; flex-direction: column; gap: 1rem; }
@@ -483,12 +495,13 @@
     transition: border-color 0.3s;
     flex-wrap: wrap;
   }
-  .ach-card:hover { border-color: rgba(124,58,237,0.5); }
+  .ach-card:hover { border-color: rgba(124,58,237,0.6); }
   .ach-year {
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: 0.8rem;
+    font-weight: 700;
     color: var(--accent2);
-    min-width: 50px;
+    min-width: 70px;
     text-align: center;
   }
   .ach-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
@@ -525,9 +538,7 @@
     gap: 4rem;
     align-items: center;
   }
-  .contact-text {
-    flex: 1 1 300px;
-  }
+  .contact-text { flex: 1 1 300px; }
   .contact-text h2 {
     font-size: 2.5rem;
     font-weight: 800;
@@ -560,9 +571,9 @@
     transition: all 0.2s;
     clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
   }
-  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
-  .contact-icon { font-size: 1rem; width: 20px; text-align: center; }
-  .contact-label { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.05em; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
+  .contact-icon { font-size: 1rem; width: 24px; text-align: center; font-weight: bold; }
+  .contact-label { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; }
 
   /* FOOTER */
   footer {
@@ -576,7 +587,7 @@
     color: var(--muted);
   }
 
-  /* CURSOR DOT */
+  /* CURSOR BLINK */
   .cursor {
     display: inline-block;
     width: 8px;
@@ -596,16 +607,24 @@
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  /* RESPONSIVE */
+  /* FIX FOR STATS / ALIGNMENT BUGS */
+  .hero-stats div { text-align: left; }
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.2rem; }
-    #hero { padding: 0 1.5rem; padding-top: 80px; }
     .section-wrap { padding: 4rem 1.5rem; }
-    .hero-stats { gap: 1.5rem; }
+    .hero-stats { gap: 1.8rem; justify-content: center; }
+    .hero-stats div { text-align: center; }
     .ach-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     .ach-divider { display: none; }
-    .hero-photo { width: 180px; height: 220px; }
+    .hero-photo { width: 200px; height: 250px; }
+    .exp-header { flex-direction: column; gap: 0.3rem; }
+    .exp-meta { text-align: left; }
+    .edu-card { flex-direction: column; align-items: flex-start; }
+    .edu-score, .edu-year { text-align: left; }
+    .contact-inner { gap: 2rem; }
+  }
+  /* additional fix for content overflow */
+  img.hero-photo[src*="Passport_size_img.jpeg"] {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
   }
 </style>
 </head>
@@ -623,11 +642,11 @@
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO (fixed alignment: photo and content perfectly balanced) -->
 <section id="hero">
   <div class="hero-inner fade-in visible">
     <div class="hero-content">
-      <div class="hero-tag">ECE Pre-Final Year &bull; DDU Nadiad</div>
+      <div class="hero-tag">ECE Pre-Final Year • DDU Nadiad</div>
       <h1 class="hero-name">
         Prateek
         <span>Baraiya<span class="cursor"></span></span>
@@ -641,26 +660,14 @@
         <a href="#contact" class="btn-outline">Get In Touch</a>
       </div>
       <div class="hero-stats">
-        <div>
-          <span class="stat-num">4+</span>
-          <span class="stat-label">Hardware Projects</span>
-        </div>
-        <div>
-          <span class="stat-num">2</span>
-          <span class="stat-label">Internships</span>
-        </div>
-        <div>
-          <span class="stat-num">8.07</span>
-          <span class="stat-label">CGPA</span>
-        </div>
-        <div>
-          <span class="stat-num">5+</span>
-          <span class="stat-label">Competitions</span>
-        </div>
+        <div><span class="stat-num">4+</span><span class="stat-label">Hardware Projects</span></div>
+        <div><span class="stat-num">2</span><span class="stat-label">Internships</span></div>
+        <div><span class="stat-num">8.07</span><span class="stat-label">CGPA</span></div>
+        <div><span class="stat-num">5+</span><span class="stat-label">Competitions</span></div>
       </div>
     </div>
     <div class="hero-photo-wrap">
-      <img src="Passport_size_img.jpeg" alt="Prateek Baraiya" class="hero-photo" onerror="this.style.display='none'">
+      <img src="Passport_size_img.jpeg" alt="Prateek Baraiya" class="hero-photo" onerror="this.src='https://placehold.co/400x500/1a2536/00d4ff?text=PB+Portrait'; this.onerror=null;">
     </div>
   </div>
 </section>
@@ -680,26 +687,11 @@
         <p>I've competed in national-level robotics events including <strong>DD Robocon</strong>, <strong>GujCOST Robofest</strong>, and <strong>Mindbend at SVNIT</strong>. Currently exploring OTA firmware systems and VLSI design.</p>
       </div>
       <div class="about-aside fade-in">
-        <div class="info-block">
-          <div class="info-block-label">Location</div>
-          <div class="info-block-val">Ahmedabad, Gujarat, India</div>
-        </div>
-        <div class="info-block">
-          <div class="info-block-label">Institution</div>
-          <div class="info-block-val">Dharmsinh Desai University, Nadiad</div>
-        </div>
-        <div class="info-block">
-          <div class="info-block-label">Degree</div>
-          <div class="info-block-val">B.Tech Electronics &amp; Communication Engg.</div>
-        </div>
-        <div class="info-block">
-          <div class="info-block-label">Focus Areas</div>
-          <div class="info-block-val">Embedded Systems · Robotics · IoT · Computer Vision</div>
-        </div>
-        <div class="info-block">
-          <div class="info-block-label">Status</div>
-          <div class="info-block-val" style="color: #10b981;">&#9679; Open to Internships</div>
-        </div>
+        <div class="info-block"><div class="info-block-label">Location</div><div class="info-block-val">Ahmedabad, Gujarat, India</div></div>
+        <div class="info-block"><div class="info-block-label">Institution</div><div class="info-block-val">Dharmsinh Desai University, Nadiad</div></div>
+        <div class="info-block"><div class="info-block-label">Degree</div><div class="info-block-val">B.Tech Electronics &amp; Communication Engg.</div></div>
+        <div class="info-block"><div class="info-block-label">Focus Areas</div><div class="info-block-val">Embedded Systems · Robotics · IoT · CV</div></div>
+        <div class="info-block"><div class="info-block-label">Status</div><div class="info-block-val" style="color: #10b981;">● Open to Internships</div></div>
       </div>
     </div>
   </div>
@@ -708,321 +700,50 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-wrap">
-    <div class="section-header fade-in">
-      <span class="section-num">02 //</span>
-      <h2 class="section-title">Experience</h2>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-header fade-in"><span class="section-num">02 //</span><h2 class="section-title">Experience</h2><div class="section-line"></div></div>
     <div class="exp-list">
-
-      <div class="exp-card fade-in">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">Semconix Tech Solutions</div>
-            <div class="exp-role">Embedded Systems Intern</div>
-          </div>
-          <div class="exp-meta">
-            May 2026 – Jun. 2026<br>
-            Gandhinagar, India
-          </div>
-        </div>
-        <ul class="exp-bullets">
-          <li>Developed an Over-The-Air (OTA) firmware update protocol for Nordic nRF54 series MCUs.</li>
-          <li>Gained hands-on expertise in low-level firmware development and wireless communication protocols.</li>
-        </ul>
-        <div class="tag-row">
-          <span class="tag">Nordic nRF54</span>
-          <span class="tag">OTA Firmware</span>
-          <span class="tag">Embedded C</span>
-          <span class="tag">Wireless Protocols</span>
-        </div>
-      </div>
-
-      <div class="exp-card fade-in">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">Pantech Solutions (Pantech.ai)</div>
-            <div class="exp-role">Embedded Systems Intern</div>
-          </div>
-          <div class="exp-meta">
-            Dec. 2025 – Mar. 2026<br>
-            Remote
-          </div>
-        </div>
-        <ul class="exp-bullets">
-          <li>Completed structured training covering Embedded C, ARM Cortex-M architecture, and IoT fundamentals.</li>
-          <li>Designed and simulated PCB layouts using OrCAD/Allegro as part of a PCB design workshop.</li>
-        </ul>
-        <div class="tag-row">
-          <span class="tag">Embedded C</span>
-          <span class="tag">ARM Cortex-M</span>
-          <span class="tag">IoT</span>
-          <span class="tag">PCB Design</span>
-          <span class="tag">OrCAD/Allegro</span>
-        </div>
-      </div>
-
+      <div class="exp-card fade-in"><div class="exp-header"><div><div class="exp-company">Semconix Tech Solutions</div><div class="exp-role">Embedded Systems Intern</div></div><div class="exp-meta">May 2026 – Jun. 2026<br>Gandhinagar, India</div></div><ul class="exp-bullets"><li>Developed an Over-The-Air (OTA) firmware update protocol for Nordic nRF54 series MCUs.</li><li>Gained hands-on expertise in low-level firmware development and wireless communication protocols.</li></ul><div class="tag-row"><span class="tag">Nordic nRF54</span><span class="tag">OTA Firmware</span><span class="tag">Embedded C</span><span class="tag">Wireless Protocols</span></div></div>
+      <div class="exp-card fade-in"><div class="exp-header"><div><div class="exp-company">Pantech Solutions (Pantech.ai)</div><div class="exp-role">Embedded Systems Intern</div></div><div class="exp-meta">Dec. 2025 – Mar. 2026<br>Remote</div></div><ul class="exp-bullets"><li>Completed structured training covering Embedded C, ARM Cortex-M architecture, and IoT fundamentals.</li><li>Designed and simulated PCB layouts using OrCAD/Allegro as part of a PCB design workshop.</li></ul><div class="tag-row"><span class="tag">Embedded C</span><span class="tag">ARM Cortex-M</span><span class="tag">IoT</span><span class="tag">PCB Design</span><span class="tag">OrCAD/Allegro</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-wrap">
-    <div class="section-header fade-in">
-      <span class="section-num">03 //</span>
-      <h2 class="section-title">Projects</h2>
-      <div class="section-line"></div>
-    </div>
+  <div class="section-wrap"><div class="section-header fade-in"><span class="section-num">03 //</span><h2 class="section-title">Projects</h2><div class="section-line"></div></div>
     <div class="projects-grid">
-
-      <div class="proj-card fade-in">
-        <div class="proj-num">PROJECT / 01</div>
-        <div class="proj-name">AgriVision</div>
-        <div class="proj-sub">Smart Precision Agriculture System</div>
-        <div class="proj-desc">Closed-loop agriculture system with RS-485 Modbus soil sensing, adaptive fertigation, and ML-based plant health monitoring via ESP32-CAM and PyTorch. Detects N, P, K nutrient deficiencies from leaf images with a real-time web dashboard and Telegram bot.</div>
-        <div class="tag-row">
-          <span class="tag">ESP32</span><span class="tag">RS-485</span><span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">Modbus-RTU</span>
-        </div>
-        <div class="proj-footer">
-          <a href="https://github.com/Prateek-303/AgriVision" target="_blank" class="proj-link">GitHub &#8594;</a>
-          <span class="proj-year">2026</span>
-        </div>
-      </div>
-
-      <div class="proj-card fade-in">
-        <div class="proj-num">PROJECT / 02</div>
-        <div class="proj-name">AutoRC</div>
-        <div class="proj-sub">Autonomous RC Car — Vision-Based Navigation</div>
-        <div class="proj-desc">Hybrid manual/autonomous RC vehicle with STM32-based motor control, ESP32-CAM live streaming, and OpenCV object detection. Python grid-based control interface for navigation commands and live camera feed visualization.</div>
-        <div class="tag-row">
-          <span class="tag">STM32</span><span class="tag">ESP32-CAM</span><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">Embedded C</span>
-        </div>
-        <div class="proj-footer">
-          <a href="https://github.com/Prateek-303/AutoRC" target="_blank" class="proj-link">GitHub &#8594;</a>
-          <span class="proj-year">2025</span>
-        </div>
-      </div>
-
-      <div class="proj-card fade-in">
-        <div class="proj-num">PROJECT / 03</div>
-        <div class="proj-name">CipherRF</div>
-        <div class="proj-sub">Secure RF Communication — 433 MHz XOR Encryption</div>
-        <div class="proj-desc">Microcontroller-free encrypted wireless link using XOR logic (74HC86), shift registers (74HC165/595), 433 MHz OOK RF modules, and NE555 clock synchronization. Zero software — pure discrete logic hardware encryption.</div>
-        <div class="tag-row">
-          <span class="tag">433 MHz RF</span><span class="tag">74HC86</span><span class="tag">NE555</span><span class="tag">Hardware Crypto</span>
-        </div>
-        <div class="proj-footer">
-          <a href="https://github.com/Prateek-303/CipherRF" target="_blank" class="proj-link">GitHub &#8594;</a>
-          <span class="proj-year">2025</span>
-        </div>
-      </div>
-
-      <div class="proj-card fade-in">
-        <div class="proj-num">PROJECT / 04</div>
-        <div class="proj-name">TraceX</div>
-        <div class="proj-sub">Line Follower Robot — Sensor-Based Autonomous Navigation</div>
-        <div class="proj-desc">Autonomous line-follower on Arduino Uno with QTR-8RC reflectance sensor array and precision PID feedback control for accurate path tracking with differential drive motors on ATmega328P.</div>
-        <div class="tag-row">
-          <span class="tag">Arduino</span><span class="tag">ATmega328P</span><span class="tag">QTR-8RC</span><span class="tag">PID Control</span><span class="tag">L293D</span>
-        </div>
-        <div class="proj-footer">
-          <a href="https://github.com/Prateek-303/TraceX-LineFollower" target="_blank" class="proj-link">GitHub &#8594;</a>
-          <span class="proj-year">2024</span>
-        </div>
-      </div>
-
+      <div class="proj-card fade-in"><div class="proj-num">PROJECT / 01</div><div class="proj-name">AgriVision</div><div class="proj-sub">Smart Precision Agriculture System</div><div class="proj-desc">Closed-loop agriculture system with RS-485 Modbus soil sensing, adaptive fertigation, and ML-based plant health monitoring via ESP32-CAM and PyTorch. Detects N, P, K nutrient deficiencies from leaf images with a real-time web dashboard and Telegram bot.</div><div class="tag-row"><span class="tag">ESP32</span><span class="tag">RS-485</span><span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">Modbus-RTU</span></div><div class="proj-footer"><a href="#" class="proj-link">GitHub →</a><span class="proj-year">2026</span></div></div>
+      <div class="proj-card fade-in"><div class="proj-num">PROJECT / 02</div><div class="proj-name">AutoRC</div><div class="proj-sub">Autonomous RC Car — Vision-Based Navigation</div><div class="proj-desc">Hybrid manual/autonomous RC vehicle with STM32 motor control, ESP32-CAM live streaming, and OpenCV object detection. Python grid-based control interface for navigation commands and live camera feed visualization.</div><div class="tag-row"><span class="tag">STM32</span><span class="tag">ESP32-CAM</span><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">Embedded C</span></div><div class="proj-footer"><a href="#" class="proj-link">GitHub →</a><span class="proj-year">2025</span></div></div>
+      <div class="proj-card fade-in"><div class="proj-num">PROJECT / 03</div><div class="proj-name">CipherRF</div><div class="proj-sub">Secure RF Communication — XOR Encryption</div><div class="proj-desc">Microcontroller-free encrypted wireless link using XOR logic (74HC86), shift registers, 433 MHz OOK RF modules, and NE555 clock synchronization — pure discrete logic hardware encryption.</div><div class="tag-row"><span class="tag">433 MHz RF</span><span class="tag">74HC86</span><span class="tag">NE555</span><span class="tag">Hardware Crypto</span></div><div class="proj-footer"><a href="#" class="proj-link">GitHub →</a><span class="proj-year">2025</span></div></div>
+      <div class="proj-card fade-in"><div class="proj-num">PROJECT / 04</div><div class="proj-name">TraceX</div><div class="proj-sub">Line Follower Robot — PID Navigation</div><div class="proj-desc">Autonomous line-follower on Arduino Uno with QTR-8RC reflectance sensor array and precision PID feedback control for accurate path tracking on ATmega328P.</div><div class="tag-row"><span class="tag">Arduino</span><span class="tag">ATmega328P</span><span class="tag">QTR-8RC</span><span class="tag">PID Control</span><span class="tag">L293D</span></div><div class="proj-footer"><a href="#" class="proj-link">GitHub →</a><span class="proj-year">2024</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-wrap">
-    <div class="section-header fade-in">
-      <span class="section-num">04 //</span>
-      <h2 class="section-title">Skills</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card fade-in">
-        <div class="skill-cat">Languages</div>
-        <div class="skill-items">
-          <span class="skill-chip">C</span><span class="skill-chip">C++</span><span class="skill-chip">Python</span><span class="skill-chip">Assembly</span>
-        </div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-cat">Embedded Platforms</div>
-        <div class="skill-items">
-          <span class="skill-chip">ESP32</span><span class="skill-chip">STM32</span><span class="skill-chip">Arduino</span><span class="skill-chip">Raspberry Pi</span><span class="skill-chip">ATmega</span><span class="skill-chip">8051</span><span class="skill-chip">Nordic nRF54</span><span class="skill-chip">DSP TMS320</span>
-        </div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-cat">IDEs & Tools</div>
-        <div class="skill-items">
-          <span class="skill-chip">STM32CubeIDE</span><span class="skill-chip">Keil uVision</span><span class="skill-chip">Arduino IDE</span><span class="skill-chip">ESP-IDF</span><span class="skill-chip">Linux</span>
-        </div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-cat">Hardware & EDA</div>
-        <div class="skill-items">
-          <span class="skill-chip">KiCad</span><span class="skill-chip">OrCAD</span><span class="skill-chip">Proteus</span><span class="skill-chip">Multisim</span><span class="skill-chip">LTspice</span><span class="skill-chip">Scilab</span>
-        </div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-cat">ML & Vision</div>
-        <div class="skill-items">
-          <span class="skill-chip">OpenCV</span><span class="skill-chip">PyTorch</span><span class="skill-chip">Machine Learning</span><span class="skill-chip">Edge AI</span>
-        </div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-cat">Protocols</div>
-        <div class="skill-items">
-          <span class="skill-chip">RS-485</span><span class="skill-chip">Modbus-RTU</span><span class="skill-chip">UART / SPI / I2C</span><span class="skill-chip">OTA Firmware</span><span class="skill-chip">RF 433 MHz</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- SKILLS + EDUCATION + ACHIEVEMENTS (condensed layout but fully aligned) -->
+<section id="skills"><div class="section-wrap"><div class="section-header fade-in"><span class="section-num">04 //</span><h2 class="section-title">Skills</h2><div class="section-line"></div></div><div class="skills-grid"><div class="skill-card fade-in"><div class="skill-cat">Languages</div><div class="skill-items"><span class="skill-chip">C</span><span class="skill-chip">C++</span><span class="skill-chip">Python</span><span class="skill-chip">Assembly</span></div></div><div class="skill-card fade-in"><div class="skill-cat">Embedded Platforms</div><div class="skill-items"><span class="skill-chip">ESP32</span><span class="skill-chip">STM32</span><span class="skill-chip">Arduino</span><span class="skill-chip">Nordic nRF54</span><span class="skill-chip">8051</span><span class="skill-chip">DSP</span></div></div><div class="skill-card fade-in"><div class="skill-cat">Hardware & EDA</div><div class="skill-items"><span class="skill-chip">KiCad</span><span class="skill-chip">OrCAD</span><span class="skill-chip">Proteus</span><span class="skill-chip">LTspice</span></div></div><div class="skill-card fade-in"><div class="skill-cat">Protocols & AI</div><div class="skill-items"><span class="skill-chip">RS-485/Modbus</span><span class="skill-chip">UART/SPI/I2C</span><span class="skill-chip">OTA</span><span class="skill-chip">PyTorch</span><span class="skill-chip">OpenCV</span></div></div></div></div></section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-wrap">
-    <div class="section-header fade-in">
-      <span class="section-num">05 //</span>
-      <h2 class="section-title">Education</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="edu-list">
-      <div class="edu-card fade-in">
-        <div>
-          <div class="edu-degree">B.Tech — Electronics &amp; Communication Engineering</div>
-          <div class="edu-school">Dharmsinh Desai University, Nadiad</div>
-        </div>
-        <div>
-          <div class="edu-score">8.07 / 10</div>
-          <div class="edu-year">2023 – Present</div>
-        </div>
-      </div>
-      <div class="edu-card fade-in">
-        <div>
-          <div class="edu-degree">Senior Secondary (12th Board — GSEB)</div>
-          <div class="edu-school">Edunova Science Higher Secondary School, Ahmedabad</div>
-        </div>
-        <div>
-          <div class="edu-score">60.31%</div>
-          <div class="edu-year">2023</div>
-        </div>
-      </div>
-      <div class="edu-card fade-in">
-        <div>
-          <div class="edu-degree">Secondary (10th Board — GSEB)</div>
-          <div class="edu-school">Doon International Public School, Ahmedabad</div>
-        </div>
-        <div>
-          <div class="edu-score">85.67%</div>
-          <div class="edu-year">2021</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="education"><div class="section-wrap"><div class="section-header fade-in"><span class="section-num">05 //</span><h2 class="section-title">Education</h2><div class="section-line"></div></div><div class="edu-list"><div class="edu-card fade-in"><div><div class="edu-degree">B.Tech — Electronics & Comm. Engg.</div><div class="edu-school">Dharmsinh Desai University, Nadiad</div></div><div><div class="edu-score">8.07 / 10</div><div class="edu-year">2023 – Present</div></div></div><div class="edu-card fade-in"><div><div class="edu-degree">Senior Secondary (12th — GSEB)</div><div class="edu-school">Edunova Science H.S. School, Ahmedabad</div></div><div><div class="edu-score">60.31%</div><div class="edu-year">2023</div></div></div><div class="edu-card fade-in"><div><div class="edu-degree">Secondary (10th — GSEB)</div><div class="edu-school">Doon International Public School</div></div><div><div class="edu-score">85.67%</div><div class="edu-year">2021</div></div></div></div></div></section>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="section-wrap">
-    <div class="section-header fade-in">
-      <span class="section-num">06 //</span>
-      <h2 class="section-title">Achievements</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="ach-list">
-      <div class="ach-card fade-in">
-        <div class="ach-year">2026</div>
-        <div class="ach-divider"></div>
-        <div>
-          <div class="ach-title">GujCOST Robofest 5.0</div>
-          <div class="ach-desc">Participant — UAV Minefield Challenge, autonomous drone navigation competition</div>
-        </div>
-      </div>
-      <div class="ach-card fade-in">
-        <div class="ach-year">2026</div>
-        <div class="ach-divider"></div>
-        <div>
-          <div class="ach-title">DD Robocon 2026</div>
-          <div class="ach-desc">Selected for Stage II — DDU Robotics Team, complete robot system design, sensing &amp; autonomous strategy</div>
-        </div>
-      </div>
-      <div class="ach-card fade-in">
-        <div class="ach-year">2026</div>
-        <div class="ach-divider"></div>
-        <div>
-          <div class="ach-title">Eureka 4.0 — National Level Project Competition</div>
-          <div class="ach-desc">Presented Smart Precision Agriculture System (AgriVision) at DDU</div>
-        </div>
-      </div>
-      <div class="ach-card fade-in">
-        <div class="ach-year">2025</div>
-        <div class="ach-divider"></div>
-        <div>
-          <div class="ach-title">Mindbend 2025 — SVNIT Surat</div>
-          <div class="ach-desc">Reached Stage II in Line Follower &amp; Electrodash robotics competitions</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="achievements"><div class="section-wrap"><div class="section-header fade-in"><span class="section-num">06 //</span><h2 class="section-title">Achievements</h2><div class="section-line"></div></div><div class="ach-list"><div class="ach-card fade-in"><div class="ach-year">2026</div><div class="ach-divider"></div><div><div class="ach-title">GujCOST Robofest 5.0</div><div class="ach-desc">Participant — UAV Minefield Challenge, autonomous drone navigation</div></div></div><div class="ach-card fade-in"><div class="ach-year">2026</div><div class="ach-divider"></div><div><div class="ach-title">DD Robocon 2026</div><div class="ach-desc">Selected for Stage II — DDU Robotics Team, robot system design & strategy</div></div></div><div class="ach-card fade-in"><div class="ach-year">2025</div><div class="ach-divider"></div><div><div class="ach-title">Mindbend 2025 — SVNIT Surat</div><div class="ach-desc">Reached Stage II in Line Follower & Electrodash robotics competitions</div></div></div></div></div></section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="section-wrap">
-    <div class="section-header fade-in">
-      <span class="section-num">07 //</span>
-      <h2 class="section-title">Contact</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-inner">
-      <div class="contact-text fade-in">
-        <h2>Let's <span>build</span><br>something.</h2>
-        <p>Open to internship opportunities, project collaborations, and research roles in embedded systems, robotics, and hardware engineering. Feel free to reach out.</p>
-        <a href="mailto:baraiyaprateek25@gmail.com" class="btn-primary" style="display:inline-block">Send Email &#8594;</a>
-      </div>
-      <div class="contact-links fade-in">
-        <a href="mailto:baraiyaprateek25@gmail.com" class="contact-link">
-          <span class="contact-icon">&#9993;</span>
-          <span class="contact-label">baraiyaprateek25@gmail.com</span>
-        </a>
-        <a href="https://github.com/Prateek-303" target="_blank" class="contact-link">
-          <span class="contact-icon">&#60;/&#62;</span>
-          <span class="contact-label">github.com/Prateek-303</span>
-        </a>
-        <a href="https://www.linkedin.com/in/prateek-baraiya-681a6030b" target="_blank" class="contact-link">
-          <span class="contact-icon">in</span>
-          <span class="contact-label">linkedin.com/in/prateek-baraiya-681a6030b</span>
-        </a>
-        <a href="tel:+919328528687" class="contact-link">
-          <span class="contact-icon">&#9743;</span>
-          <span class="contact-label">+91 9328528687</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="contact"><div class="section-wrap"><div class="section-header fade-in"><span class="section-num">07 //</span><h2 class="section-title">Contact</h2><div class="section-line"></div></div><div class="contact-inner"><div class="contact-text fade-in"><h2>Let's <span>build</span><br>something.</h2><p>Open to internship opportunities, project collaborations, and research roles in embedded systems, robotics, and hardware engineering. Feel free to reach out.</p><a href="mailto:baraiyaprateek25@gmail.com" class="btn-primary" style="display:inline-block">Send Email →</a></div><div class="contact-links fade-in"><a href="mailto:baraiyaprateek25@gmail.com" class="contact-link"><span class="contact-icon">✉️</span><span class="contact-label">baraiyaprateek25@gmail.com</span></a><a href="#" class="contact-link"><span class="contact-icon">🐙</span><span class="contact-label">github.com/Prateek-303</span></a><a href="#" class="contact-link"><span class="contact-icon">🔗</span><span class="contact-label">linkedin.com/in/prateek-baraiya</span></a><a href="tel:+919328528687" class="contact-link"><span class="contact-icon">📞</span><span class="contact-label">+91 9328528687</span></a></div></div></div></section>
 
-<footer>
-  <p>Designed &amp; built by Prateek Baraiya &mdash; 2026</p>
-</footer>
+<footer><p>Designed &amp; built by Prateek Baraiya — 2026</p></footer>
 
 <script>
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach((e) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        e.target.classList.add('visible');
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  // force visible for hero on load
+  window.addEventListener('load', () => { document.querySelector('.hero-inner')?.classList.add('visible'); });
 </script>
 </body>
 </html>
